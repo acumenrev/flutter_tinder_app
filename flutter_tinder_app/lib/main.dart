@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tinder_app/common/round_icon_button.dart';
-import 'package:fluttery/layout.dart';
 import 'common/profile_card.dart';
-
+import 'common/matches.dart';
 
 void main() => runApp(new MyApp());
 
@@ -50,6 +49,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  DateMatch match = new DateMatch();
 
   Widget _buildAppBar() {
     return new AppBar(
@@ -106,21 +107,21 @@ class _MyHomePageState extends State<MyHomePage> {
               icon: Icons.clear,
               iconColor: Colors.red,
               onPressed: () {
-
+                this.match.nope();
               },
             ),
             new RoundIconButton.small(
               iconColor: Colors.blue,
               icon: Icons.star,
               onPressed: () {
-
+                this.match.like();
               },
             ),
             new RoundIconButton.large(
               icon: Icons.favorite,
               iconColor: Colors.red,
               onPressed: () {
-
+                this.match.superLike();
               },
             ),
             new RoundIconButton.small(
@@ -135,11 +136,6 @@ class _MyHomePageState extends State<MyHomePage> {
       )
     );
   }
-
-  Widget _buildCardStack() {
-    return DragableCard();
-  }
-
 
   @override
   Widget build(BuildContext context) {
